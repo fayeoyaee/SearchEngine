@@ -95,7 +95,7 @@ public class Query {
 
             for (String queryStr : queryStrs) {
                 Set<String> results = query.query(queryStr);
-                System.out.printf("\nQuery string: \n%s\nCorresponding documents: \n", queryStr);
+                System.out.printf("\n\nQuery string: \n%s\nCorresponding documents: \n", queryStr);
                 results.forEach(str -> System.out.printf("%s, ", str));
             }
             System.out.println("");

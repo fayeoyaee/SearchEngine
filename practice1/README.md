@@ -6,16 +6,20 @@ If you have new query file, rename and replace /src/main/resources/AP_DATA/query
 
 If you have new stoplist file, rename and replace /src/main/resources/AP_DATA/stoplist.txt.
 
-### Run elasticsearch on port 9300
+* Run elasticsearch on port 9300
 
-### Compile the program: 
+* Compile the program: 
 
 `mvn compile`
 
-### Run Indexer: 
+* Run Indexer: 
 
 `mvn exec:java -Dexec.mainClass="com.fayeoyaee.hw1.Indexer" -Dexec.cleanupDaemonThreads=false`
 
-### Run Query: 
+* Run Query: 
 
 `mvn exec:java -Dexec.mainClass="com.fayeoyaee.hw1.Query" -Dexec.cleanupDaemonThreads=false`
+
+* Query result example:
+
+![Example](QueryResultExample.png)
