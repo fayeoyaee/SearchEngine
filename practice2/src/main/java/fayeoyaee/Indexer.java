@@ -75,6 +75,43 @@ public class Indexer {
     }
 
     /**
+     * parse content into tokens for indexer
+     */
+    private void indexerTokenizer(Indexer.Document doc, Map<Integer, String> hashToTerm, Map<Integer, String> hashToDocno,
+            Map<Integer, Map<Integer, Integer>> termFreqInDoc) {
+        if (Util.stopSet.isEmpty()) {
+            Util.initStopSet();
+        }
+        if (Util.wordToStem.isEmpty()) {
+            Util.initStemMap();
+        }
+
+        // match reg expr
+        String content = doc.content.replaceAll("[^a-zA-Z0-9 ]+", "");
+
+        // to lower case
+        String[] terms = content.trim().toLowerCase().split(" +");
+
+        // do stopping, stemming
+        terms = Arrays.stream(terms).filter(term -> !Util.stopSet.contains(term)) // stopping
+                .map(term -> Util.wordToStem.containsKey(term) ? Util.wordToStem.get(term) : term) // stemming
+                .distinct() 
+                .toArray(String[]::new);
+
+        for (String term : terms) {
+            // update term map & doc map
+            hashToTerm.putIfAbsent(term.hashCode(), term);
+            hashToDocno.putIfAbsent(doc.id.hashCode(), doc.id);
+
+            // update termFreqInDoc map
+            Map<Integer, Integer> docToFreq = termFreqInDoc.getOrDefault(term.hashCode(),
+                    new HashMap<Integer, Integer>());
+            docToFreq.put(doc.id.hashCode(), docToFreq.getOrDefault(doc.id.hashCode(), 0) + 1);
+            termFreqInDoc.put(term.hashCode(), docToFreq);
+        }
+    }
+
+    /**
      * Add doc to indexer: update term map, doc map, tuple list
      * 
      * @throws IOException
@@ -82,7 +119,7 @@ public class Indexer {
     public void add(String fileName) throws IOException {
         List<Document> docs = fileParser(fileName);
         for (Document doc : docs) {
-            Util.indexerTokenizer(doc, hashToTerm, hashToDocno, termFreqInDoc);
+            indexerTokenizer(doc, hashToTerm, hashToDocno, termFreqInDoc);
         }
     }
 
@@ -99,8 +136,9 @@ public class Indexer {
         File[] files = folder.listFiles();
         // for (int i = 0; i < 5; ++i) { // debug
         for (int i = 0; i < files.length; ++i) {
-            System.out.printf("Indexing the %dth file out of %d files: now have %d terms %d docs, using %d%n mb\n", i,
-                    files.length, hashToTerm.size(), hashToDocno.size(), (Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory()) / (1024L*1024L));
+            System.out.printf("Indexing the %dth file out of %d files: now have %d terms %d docs, using %d mb\n", i,
+                    files.length, hashToTerm.size(), hashToDocno.size(),
+                    (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024L * 1024L));
             indexer.add(files[i].getName());
         }
 
@@ -110,6 +148,8 @@ public class Indexer {
         String queryStr = br.readLine();
         int queryCnt = 0;
         while (queryStr != null && !queryStr.isEmpty()) {
+            System.out.printf("\nRunning the %dth query \n", queryCnt);
+
             // get query results
             Deque<Query.Entry> results = query.query(queryStr, hashToTerm, hashToDocno, termFreqInDoc);
 
@@ -120,9 +160,7 @@ public class Indexer {
             // read next query
             queryStr = br.readLine();
             queryCnt++;
-            System.out.printf("\nRunning the %dth query \n", queryCnt);
 
-            // if (queryCnt > 3) break; // debug
         }
 
         System.out.printf("Indexed %d docs in %d files. Processed %d queries.", hashToDocno.size(), files.length,
