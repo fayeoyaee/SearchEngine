@@ -104,20 +104,4 @@ public class Util {
             termFreqInDoc.put(term.hashCode(), docToFreq);
         }
     }
-
-    // generate tf-idf(t,d)
-    public static void generateTfIdf(Set<Integer> allDocs, Map<Integer, Map<Integer, Integer>> termFreqInDoc,
-            Map<Integer, Map<Integer, Integer>> tfIdf) {
-        Set<Integer> allTerms = termFreqInDoc.keySet();
-        for (Integer term : allTerms) {
-            Map<Integer, Integer> tmp = new HashMap<>();
-            for (Integer doc : allDocs) {
-                int tf_t_d = termFreqInDoc.get(term).getOrDefault(doc, 0); // if doc not contains term, return 0
-                int df_t = termFreqInDoc.get(term).size();
-                int idf_t = allDocs.size() / df_t; // guaranteed that df_t != 0
-                tmp.put(doc, tf_t_d * idf_t);
-            }
-            tfIdf.put(term, tmp);
-        }
-    }
 }

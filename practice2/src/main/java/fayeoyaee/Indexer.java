@@ -22,9 +22,8 @@ public class Indexer {
     }
 
     public static Map<Integer, String> hashToTerm = new HashMap<>();
-    public static Map<Integer, String> hashToDocno = new HashMap<>();
+    public static Map<Integer, String> hashToDocno = new HashMap<>(90000);
     public static Map<Integer, Map<Integer, Integer>> termFreqInDoc = new HashMap<>();
-    public static Map<Integer, Map<Integer, Integer>> tfIdf = new HashMap<>();
 
     public Indexer() {
     }
@@ -77,6 +76,7 @@ public class Indexer {
 
     /**
      * Add doc to indexer: update term map, doc map, tuple list
+     * 
      * @throws IOException
      */
     public void add(String fileName) throws IOException {
@@ -97,11 +97,12 @@ public class Indexer {
         URL url = Indexer.class.getResource("/AP_DATA/ap89_collection");
         File folder = new File(url.toURI());
         File[] files = folder.listFiles();
+        // for (int i = 0; i < 5; ++i) { // debug
         for (int i = 0; i < files.length; ++i) {
+            System.out.printf("Indexing the %dth file out of %d files: now have %d terms %d docs, using %d%n mb\n", i,
+                    files.length, hashToTerm.size(), hashToDocno.size(), (Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory()) / (1024L*1024L));
             indexer.add(files[i].getName());
         }
-
-        Util.generateTfIdf(hashToDocno.keySet(), termFreqInDoc, tfIdf);
 
         Query query = new Query();
         InputStream i = Indexer.class.getResourceAsStream("/AP_DATA/query_desc.51-100.short.txt");
@@ -110,17 +111,21 @@ public class Indexer {
         int queryCnt = 0;
         while (queryStr != null && !queryStr.isEmpty()) {
             // get query results
-            Deque<Query.Entry> results = query.query(queryStr, hashToTerm, hashToDocno, tfIdf);
+            Deque<Query.Entry> results = query.query(queryStr, hashToTerm, hashToDocno, termFreqInDoc);
 
             // print query results
             System.out.printf("\n\nQuery string: \n%s\nFetched %d documents: \n", queryStr, results.size());
-            results.forEach(entry -> System.out.printf("%s : %d, ", hashToDocno.get(entry.docHash), entry.rank));
+            results.forEach(entry -> System.out.printf("%s : %.2f, ", hashToDocno.get(entry.docHash), entry.rank));
 
             // read next query
             queryStr = br.readLine();
             queryCnt++;
+            System.out.printf("\nRunning the %dth query \n", queryCnt);
+
+            // if (queryCnt > 3) break; // debug
         }
 
-        System.out.printf("Indexed %d files. Processed %d queries.", files.length, queryCnt);
+        System.out.printf("Indexed %d docs in %d files. Processed %d queries.", hashToDocno.size(), files.length,
+                queryCnt);
     }
 }
