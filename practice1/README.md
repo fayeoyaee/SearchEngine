@@ -1,4 +1,6 @@
-# Steps to run the program:
+# A search engine for xml files using ElasticSearch
+
+## Steps to run the program:
 
 If you have new dataset, replace /src/main/resources/AP_DATA/ap89_collection folder.
 
