@@ -1,7 +1,1 @@
-.vscode
-.settings
 .DS_Store
-src/main/resources/data
-target
-.classpath
-.project
