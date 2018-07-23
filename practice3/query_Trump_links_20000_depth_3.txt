@@ -1,0 +1,233 @@
+Summary:
+Crawled 20000 links for topic "Trump" (depth=3). There're 3614 unique links (TEXT=3056, IMAGE=549, VIDEO=9).
+
+Domain Distribution (175 domains):
+washingtonpost.com: 2144
+twitter.com: 316
+legacy.com: 214
+subscribe.washingtonpost.com: 170
+latimes.com: 132
+pbs.twimg.com: 82
+thelily.com: 81
+jobs.washingtonpost.com: 68
+t.co: 30
+whitehouse.gov: 27
+stats.washingtonpost.com: 24
+facebook.com: 23
+img.washingtonpost.com: 23
+amazon.com: 16
+commerce.washingtonpost.com: 13
+feeds.washingtonpost.com: 11
+abs.twimg.com: 6
+helpcenter.washingtonpost.com: 6
+enter.dotcommawards.com: 6
+youtube.com: 5
+cnn.com: 5
+support.twitter.com: 5
+redhat.com: 5
+ssa.washingtonpost.com: 5
+realestate.washingtonpost.com: 4
+simonandschuster.com: 4
+games.washingtonpost.com: 4
+help.washingtonpost.com: 4
+theatlantic.com: 3
+store.latimes.com: 3
+myaccount2.latimes.com: 3
+dev.twitter.com: 3
+linkedin.com: 3
+instagram.com: 3
+googletagmanager.com: 3
+census.gov: 2
+bicycling.com: 2
+yahoo.com: 2
+deadline.com: 2
+history.army.mil: 2
+forbes.com: 2
+live.washingtonpost.com: 2
+nytimes.com: 2
+reuters.com: 2
+onstar.com: 2
+cars.com: 2
+nationaljobs.washingtonpost.com: 2
+rferl.org: 2
+mypublicnotices.com: 2
+me.effectivemeasure.net: 2
+wapo.st: 2
+leidos.com: 2
+bbc.com: 2
+plus.google.com: 2
+themoscowtimes.com: 2
+stumbleupon.com: 1
+kehrerverlag.com: 1
+losangeles.cbslocal.com: 1
+brookings.edu: 1
+newsletters.latimes.com: 1
+theguardian.com: 1
+read.amazon.com: 1
+startribune.com: 1
+nie.washingtonpost.com: 1
+urldefense.proofpoint.com: 1
+enewspaper.latimes.com: 1
+s3.amazonaws.com: 1
+uci.org: 1
+uclick.com: 1
+membership.latimes.com: 1
+employers.washingtonpost.com: 1
+rhelblog.redhat.com: 1
+sub.washingtonpost.com: 1
+mylocal.latimes.com: 1
+farenet.org: 1
+huffingtonpost.com: 1
+europa.eu: 1
+newsmediaalliance.org: 1
+findtreatment.samhsa.gov: 1
+postpoints.washingtonpost.com: 1
+thedailybeast.com: 1
+news-press.com: 1
+apply.whitehouse.gov: 1
+pinkdreama.tumblr.com: 1
+abcnews.go.com: 1
+atodallas.org: 1
+bankrate.com: 1
+dfw.cbslocal.com: 1
+smithsonianmag.com: 1
+cityofgolddoc.com: 1
+washingtonpostreprints.com: 1
+eryburns.com: 1
+b.scorecardresearch.com: 1
+marketplace.latimes.com: 1
+commoncause.org: 1
+us.macmillan.com: 1
+destinationtoast.tumblr.com: 1
+dailymail.co.uk: 1
+enter.marcomawards.com: 1
+judiciary.senate.gov: 1
+historicisleofwight.com: 1
+obamawhitehouse.archives.gov: 1
+news.bbc.co.uk: 1
+vikings.com: 1
+latimesfoundation.com: 1
+washingtonpostlive.com: 1
+hollywoodreporter.com: 1
+us.madgex.com: 1
+placeanad.latimes.com: 1
+local.latimes.com: 1
+thehill.com: 1
+scmp.com: 1
+posttv.com: 1
+politifact.com: 1
+euromonitor.com: 1
+cbsnews.com: 1
+niemanlab.org: 1
+aclu.org: 1
+velonews.com: 1
+drugfree.org: 1
+dignitymemorial.com: 1
+syndication.washingtonpost.com: 1
+leg.state.fl.us: 1
+dpdbeat.com: 1
+games.latimes.com: 1
+qz.com: 1
+ncbi.nlm.nih.gov: 1
+parade.com: 1
+pulitzer.org: 1
+recode.net: 1
+hotels.latimes.com: 1
+globalme.net: 1
+apps.washingtonpost.com: 1
+status.twitter.com: 1
+au.news.yahoo.com: 1
+press.princeton.edu: 1
+sb.scorecardresearch.com: 1
+cato.org: 1
+thefcs.org: 1
+adn.com: 1
+latimes.com#nt=secondarynavbar: 1
+flhsmv.gov: 1
+burlingtonfreepress.com: 1
+washingtonpostmedia.com: 1
+affiliate.zap2it.com: 1
+womenandhollywood.com: 1
+insights.leidos.com: 1
+asu.edu: 1
+dallasnews.com: 1
+zimbio.com: 1
+digg.com: 1
+en.wikipedia.org: 1
+terjeabusdal.com: 1
+apartmentshowcase.com: 1
+pulselabs.ai: 1
+latimes.com#nt=primarynavbar: 1
+law.lis.virginia.gov: 1
+vulture.com: 1
+tronc.com: 1
+cbo.gov: 1
+tampabay.com: 1
+foliomag.com: 1
+medium.com: 1
+mchb.hrsa.gov: 1
+annenberg.usc.edu: 1
+americanethane.com: 1
+cdc.gov: 1
+prsindia.org: 1
+nativeadvertisinginstitute.com: 1
+solidopinion.com: 1
+washpostshop.myshopify.com: 1
+nbcnews.com: 1
+thesun.co.uk: 1
+vikingsplash.com: 1
+washingtonpost.com?nid=menu_nav_partners: 1
+
+Top 25 incoming links:
+#1: https://wapo.st/2mzNFnQ?tid=ss_tw&utm_term=.beef87ead148 (1)
+#2: https://twitter.com/intent/follow?screen_name=aolivo (1)
+#3: https://www.washingtonpost.com/world/asia_pacific/a-young-man-is-slain-by-police--and-this-time-pakistans-pashtuns-wont-stay-quiet/2018/04/19/1484cebc-4237-11e8-b2dc-b0a403e4720a_story.html (1)
+#4: https://www.washingtonpost.com/world/asia_pacific/in-glistening-new-airport-pakistan-sees-ticket-to-reviving-the-countrys-prestige/2018/05/04/42f30c88-431c-11e8-b2dc-b0a403e4720a_story.html (1)
+#5: https://www.washingtonpost.com/world/asia_pacific/islamist-terrorism-wanes-in-pakistan-but-religious-fervor-threatens-national-unity/2018/05/07/60acfe4a-51ff-11e8-a6d4-ca1d035642ce_story.html (1)
+#6: https://www.washingtonpost.com/world/asia_pacific/once-a-mighty-political-force-the-pakistan-peoples-party-is-struggling-to-make-a-comeback/2017/12/08/7dfecfbe-da13-11e7-a241-0848315642d0_story.html?utm_term=.df9167e44d6d (1)
+#7: https://twitter.com/imrankhanpti/status/1015600688922021888?lang=en (1)
+#8: https://www.washingtonpost.com/world/as-former-pakistan-leader-returns-to-begin-jail-sentence-deadly-bombing-adds-to-atmosphere-of-fear/2018/07/13/89eecc6c-86b0-11e8-8589-5bb6b89e3772_story.html?utm_term=.896bf51b6a88 (1)
+#9: https://www.washingtonpost.com/world/national-security/the-trump-administration-weighs-direct-talks-with-the-taliban/2018/07/16/f963df22-8919-11e8-8aea-86e88ae760d8_story.html?utm_term=.cf2f0b8b57b3 (1)
+#10: https://www.washingtonpost.com/world/pakistanis-urge-the-military-to-boost-security-as-attacks-mount-before-election/2018/07/14/ea750a96-86f7-11e8-9e06-4db52ac42e05_story.html?utm_term=.a1ce1d121650 (1)
+#11: https://www.washingtonpost.com/news/worldviews/wp/2018/07/06/pakistan-court-convicts-former-prime-minister-sharif-in-corruption-case/?utm_term=.fdd457146128 (1)
+#12: http://www.washingtonpost.com/pb/world/asia_pacific/violence-sharif-corruption-case-put-pakistan-on-edge-ahead-of-elections/2018/07/22/187cad24-8b38-11e8-8b20-60521f27434e_story.html?outputType=accessibility&nid=menu_nav_accessibilityforscreenreader (1)
+#13: https://subscribe.washingtonpost.com/acquisition/?nid=top_pb_subscribe&promo=o5&oscode=RPWH&destination=/world/asia_pacific/violence-sharif-corruption-case-put-pakistan-on-edge-ahead-of-elections/2018/07/22/187cad24-8b38-11e8-8b20-60521f27434e_story.html&tid=nav_subscribe_logged_in (1)
+#14: https://subscribe.washingtonpost.com/acquisition/?nid=top_pb_subscribe&promo=o3&oscode=RPWH&destination=/world/asia_pacific/violence-sharif-corruption-case-put-pakistan-on-edge-ahead-of-elections/2018/07/22/187cad24-8b38-11e8-8b20-60521f27434e_story.html&tid=nav_subscribe_logged_out (1)
+#15: https://www.washingtonpost.com/world/asia_pacific/violence-sharif-corruption-case-put-pakistan-on-edge-ahead-of-elections/2018/07/22/187cad24-8b38-11e8-8b20-60521f27434e_story.html?noredirect=on# (1)
+#16: https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/50fd9327-bc24-4773-973a-9c9774057409.png&w=60&h=60&t=20170517a (1)
+#17: https://www.washingtonpost.com/resizer/csHTfic9-Mk7KitHAaNl1Zro7vg=/480x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/L5YG47EMMAI6RCXKQ3UIVZ3A3A.jpg (1)
+#18: https://twitter.com/intent/follow?screen_name=AmandaWaPo (1)
+#19: https://www.washingtonpost.com/world/europe/can-russia-with-its-history-of-racist-attacks-and-hooligans-put-on-a-world-cup-welcome/2018/06/12/88f88ac0-6da4-11e8-b4d8-eaf78d4c544c_story.html?utm_term=.dd7717cd79bd (1)
+#20: https://www.washingtonpost.com/world/europe/first-encounters-in-siberia-as-travelers-descend-on-russia-for-world-cup/2018/06/13/e9b5761c-68cb-11e8-a335-c4503d041eaf_story.html?utm_term=.75dd7046524b (1)
+#21: https://www.washingtonpost.com/world/at-world-cup-russians-embrace-the-world-one-relationship-at-a-time/2018/07/09/63648904-820c-11e8-b3b5-b61896f90919_story.html?utm_term=.5333bc9f27ef (1)
+#22: https://www.bbc.com/sport/football/44045087 (1)
+#23: https://www.theguardian.com/football/2017/dec/07/spartak-moscow-leonid-mironov-charged-racist-behaviour-to-liverpool-rhian-brewster (1)
+#24: http://farenet.org/news/erasmus-term-slug/monitoring-report-details-racism-russian-football/ (1)
+#25: http://news.bbc.co.uk/sport2/hi/football/europe/9027968.stm (1)
+
+Top 25 outgoing links:
+#1: http://www.washingtonpost.com/classifieds/ (258)
+#2: https://www.washingtonpost.com/?tid=tst_homelink (187)
+#3: http://www.washingtonpost.com/graphics/2018/business/alexa-does-not-understand-your-accent/ (185)
+#4: https://www.washingtonpost.com/brand-studio/archive/ (178)
+#5: https://www.washingtonpost.com/opinions/ (157)
+#6: https://www.washingtonpost.com/sf/brand-connect/ (150)
+#7: http://www.latimes.com/nation/la-na-pol-pompeo-north-korea-nuclear-20180707-story.html (149)
+#8: https://twitter.com/realdonaldtrump/status/1006837823469735936?lang=en (147)
+#9: https://twitter.com/realdonaldtrump/status/1019526399542091776 (125)
+#10: https://www.washingtonpost.com/sports/ (115)
+#11: https://www.thelily.com/ (85)
+#12: https://www.washingtonpost.com/business/ (84)
+#13: https://jobs.washingtonpost.com/ (78)
+#14: https://www.washingtonpost.com/entertainment/ (56)
+#15: https://www.washingtonpost.com/world/national-security (54)
+#16: https://www.washingtonpost.com/local/ (52)
+#17: https://www.washingtonpost.com/people/ej-dionne-jr/ (42)
+#18: https://www.washingtonpost.com/national/ (40)
+#19: https://www.washingtonpost.com/lifestyle/ (40)
+#20: https://wapo.st/2mzNFnQ?tid=ss_tw&utm_term=.beef87ead148 (36)
+#21: https://www.washingtonpost.com/politics/ (36)
+#22: https://www.washingtonpost.com/world/ (36)
+#23: https://www.washingtonpost.com/regional/ (32)
+#24: https://www.whitehouse.gov/briefings-statements/remarks-president-trump-press-gaggle/ (32)
+#25: https://www.washingtonpost.com/people/john-hudson/ (29)

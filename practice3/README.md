@@ -1,5 +1,9 @@
 # Single-threed Twitter Topic crawler and analyzer
 
+## Summary 
+
+After getting tweets for a specific topic, the Extractor extracts all **external** links (that's not in twitter.com domain) and feed to the Crawler until the target links are crawled. The Crawler takes the links from tweets as seeds, parse webpages, get all the outgoing links, and crawl all the **non-image, non-video** outgoing links.
+
 ## Steps to run the program:
 
 #### Compile the program: 
@@ -8,9 +12,9 @@
 
 #### Run Crawler: 
 
-`mvn exec:java -Dexec.mainClass="fayeoyaee.Crawler"`
+`mvn exec:java -Dexec.mainClass="fayeoyaee.Extractor"`
 
-Follow the instruction to enter <query hashtag>, <number of links> and <depth>
+Follow the instruction to enter <query hashtag>, <number of links>, <depth>, and <rank limits>
 
 #### Extractor and Statistics Result: 
 
@@ -26,11 +30,6 @@ A Extractor will extract 20,000 links for query and compute:
 
 - Top 25 pages with highest number of incoming and outgoing links
 
-For example, here's a summary for "#acai bowl":
+For example, here's a summary for "#Trump" on 07/22/2018:
 
-![Result](Acaibowl.png)
-
-For example, here's a summary for "#chinese tech company ZTE":
-
-![Result](CTechZTE.png)
-
+[Statistics](query_Trump_links_20000_depth_3.txt)

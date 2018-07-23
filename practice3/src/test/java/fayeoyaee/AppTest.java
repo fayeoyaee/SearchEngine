@@ -34,7 +34,6 @@ public class AppTest
     public void testApp()
     {
         Extractor e = new Extractor();
-        e.extract_tweets();
-        assertTrue( true );
+        e.extract("Trump", 20000, 3, 25);
     }
 }
