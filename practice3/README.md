@@ -1,4 +1,4 @@
-# Single-threed Twitter Topic crawler and analyzer
+# Twitter Topic crawler and analyzer
 
 ## Summary 
 
@@ -20,6 +20,7 @@ Follow the instruction to enter <query hashtag>, <number of links>, <depth>, and
 
 A Extractor will extract 20,000 links for query and compute:
 
+
 - Number of unique links extracted 
 
 - Frequecy distribution by domain
@@ -30,6 +31,5 @@ A Extractor will extract 20,000 links for query and compute:
 
 - Top 25 pages with highest number of incoming and outgoing links
 
-For example, here's a summary for "#Trump" on 07/22/2018:
 
-[Statistics](query_Trump_links_20000_depth_3.txt)
+For example, here's a [summary](query_Trump_links_20000_depth_3.txt) for "#Trump" on 07/22/2018:
