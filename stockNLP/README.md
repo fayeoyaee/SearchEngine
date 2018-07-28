@@ -52,8 +52,73 @@ We want to provide traders with the following supplimentary statistic to assist 
 
 #### Pipeline
 
-HanLP, a NLP library for Chinese language with customized dictionary (eg, for stock names, positive/negative words) is used to parse and identify target words. The crawler runs as a daemon process everyday and put the tagged article with some document-level metadata (timestamp, title, url, number of positive/negative words, etc) into MLab (AWS MongoDB instance). A article is tagged with the following information:
+HanLP, a NLP library for Chinese language with customized dictionary (to tag stock names, positive/negative words, and stop words) is used to parse and identify target words. The crawler runs as a daemon process everyday and put the tagged article with some document-level metadata (timestamp, title, url, number of positive/negative words, etc) into MLab (AWS MongoDB instance). An article is tagged with the following information:
 
 - Highlighted context words which surrounds a stock name. A context is formed by extracting X words before and after a stock name. If multiple stock names appear together, we expand the context. A context is supposed to capture the most important parts of the article and we'll give higher weights (boots) to words within the context.
 
-An indexer is called to build term-document frequency postings, which reflects which terms should be highted in which doc, after daily crawler and store in MLab. A ranker retrieves information from MLab at the time of request, apply weights to terms and docs, and return a ranked list of documents related to the search. 
+A daily indexer is called to build term-document frequency postings, which reflects which terms should be highted in which doc, after daily crawler and store in MLab so we can reduce the workload of real-time ranker. A ranker retrieves information from MLab at the time of request, apply weights to terms and docs, and return a ranked list of documents related to the search. 
+
+#### Data structure
+
+##### DS in implementation 
+
+Post {
+  title: String,
+  time: String
+  url: String -> Article 
+}
+
+Article {
+  contexts: Context[],
+  posNum: int,
+  negNum: int
+} 
+
+Context {
+  relatedStock: String[],
+  length: int,
+  belongedArticle: Article
+}
+
+
+##### DS in MongoDB 
+
+terms collection:
+
+record {
+  _id(hash): String,
+  term: String,
+  POS: String
+}
+
+docs collection:
+
+record {
+  _id(hash): String,
+  url: String,
+  numPos: int,
+  numNeg: int,
+  relatedStocks: String[],
+}
+
+07-26 collection:
+
+record {
+  term: String,
+  doc: String,
+  freq: int,
+  posBoost: int (2/3), // if in title, reward with 2; in context, reward with 3
+}
+
+##### Fetch data and get statistics 
+
+idf(t): term=t; add up how many records
+tf(t,d): term=t,doc=d; check freq field
+coord(t,d): term=t1...tn,doc=d; add up freq1...freqn // reward doc with more hits of terms in q
+norm(t,d): term=t,doc=d; check posBoost field
+getboost(t,d): 4 - (search date - collection date) // suppose we search for the past 3 days, give wight 4 for today's docs, 3 for yesterday, etc
+
+tf(t): term=t;
+hot words: tf high idf not high
+
+market reaction(stock): term=stockname; get all the docs, check numPos, numNeg
