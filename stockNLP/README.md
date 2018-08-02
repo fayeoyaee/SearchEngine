@@ -112,13 +112,19 @@ record {
 
 ##### Fetch data and get statistics 
 
-idf(t): term=t; add up how many records
+idf(t): term=t; add up how many records // as it's to much we run another daemon to calculate tf for each collection and write to db so it's much fastr to extract it
 tf(t,d): term=t,doc=d; check freq field
-coord(t,d): term=t1...tn,doc=d; add up freq1...freqn // reward doc with more hits of terms in q
 norm(t,d): term=t,doc=d; check posBoost field
+coord(t,d): term=t1...tn,doc=d; add up freq1...freqn // reward doc with more hits of terms in q
 getboost(t,d): 4 - (search date - collection date) // suppose we search for the past 3 days, give wight 4 for today's docs, 3 for yesterday, etc
 
 tf(t): term=t;
 hot words: tf high idf not high
 
 market reaction(stock): term=stockname; get all the docs, check numPos, numNeg
+
+### Deficiencies
+
+Our implementation is much slower than ES. ES must have done special optimization for querying and calculating statistics. But we can customize search with our own implementation.
+
+When calculating pos/neg, not distinguish if the pos describes doc/stock.

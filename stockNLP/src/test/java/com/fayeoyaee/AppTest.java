@@ -1,5 +1,7 @@
 package com.fayeoyaee;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Arrays;
 
 import junit.framework.Test;
@@ -30,8 +32,14 @@ public class AppTest extends TestCase {
    * Rigourous Test :-)
    */
   public void testApp() {
-    Crawler c = new Crawler();
-    c.crawl();
+    // Server.requestParser("GET /popWords?date=07-29?n=10 HTTP/1.1");
+
+    try {
+		System.out.println(URLDecoder.decode("stockName=%E5%8D%8E%E8%B0%8A%E5%85%84%E5%BC%9F", "utf-8"));
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     assertTrue(true);
   }
 }
