@@ -1,2 +1,6 @@
 *.out
 *.log
+*.aux
+*.bak0
+*.fls
+*.fdb_latexmk
