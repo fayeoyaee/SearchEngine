@@ -240,10 +240,10 @@ public class Query {
 
             // add doc to min heap; poll if min heap is full
             minHeap.add(new DocWithScore(doc, score));
-            System.out.println("[Query.query]: adding "+score+" to minHeap");
+            // System.out.println("[Query.query]: adding "+score+" to minHeap");
             if (minHeap.size() > QueryNDocs) {
               DocWithScore docP = minHeap.poll();
-              System.out.println("[Query.query]: polling "+docP.score+"from minHeap");
+              // System.out.println("[Query.query]: polling "+docP.score+"from minHeap");
             }
           }
         }
