@@ -6,17 +6,17 @@ import java.util.stream.Collectors;
 
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.common.Term;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 
 class MetaData {
   public static int CONTEXT_MIN_LEN = 10;
+  static MongoClient client;
   public static MongoDatabase db;
 
   String title;
@@ -30,11 +30,13 @@ class MetaData {
     this.time = time;
   }
 
-  public static void init() {
-    // TODO: hide env vars
-    db = MongoClients.create("mongodb://testuser2:testuser2@ds253831.mlab.com:53831/quant_nlp")
-        .getDatabase("quant_nlp");
+  public static void init(String username, String password) {
+    client = MongoClients.create(
+        "mongodb://"+username+":"+password+"@ds253831.mlab.com:53831/quant_nlp");
+    db = client.getDatabase("quant_nlp");
   }
+
+  public static void close() { client.close(); }
 
   private class Context {
     int start;

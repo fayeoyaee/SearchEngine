@@ -39,7 +39,7 @@ public class Server {
 
   public static void main(String[] args) {
     try {
-      Query.init();
+      Query.init(args[0], args[1]);
       Query q = new Query();
 
       ServerSocket server = new ServerSocket(9090); 

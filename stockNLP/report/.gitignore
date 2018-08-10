@@ -4,3 +4,4 @@
 *.bak0
 *.fls
 *.fdb_latexmk
+*.synctex.gz

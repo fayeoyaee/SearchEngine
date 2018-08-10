@@ -36,13 +36,12 @@ public class Crawler {
     });
   }
 
-  public void crawl() {
-    // init mongodb collection
-    MetaData.init();
+  public void crawl(String total_page_from_now) {
+    System.out.println("crawling "+total_page_from_now+" pages from now");
 
     // add MetaDatas
     List<String> initial_urls = new ArrayList<>();
-    for (int i = 10; i < 20; ++i) {
+    for (int i = 1; i < Integer.parseInt(total_page_from_now); ++i) {
       initial_urls.add("http://app.cnfol.com/test/newlist_api.php?catid=4035&page=" + String.valueOf(i));
     }
     startRequests(initial_urls);
@@ -56,7 +55,12 @@ public class Crawler {
   }
 
   public static void main(String[] args) {
+    // init mongodb collection
+    MetaData.init(args[1], args[2]);
+
     Crawler c = new Crawler();
-    c.crawl();
+    c.crawl(args[0]);
+
+    MetaData.close();
   }
 }

@@ -16,9 +16,9 @@ public class Query {
   static MongoDatabase db;
   static MongoClient client;
 
-  public static void init() {
+  public static void init(String username, String password) {
     client = MongoClients.create(
-        "mongodb://testuser2:testuser2@ds253831.mlab.com:53831/quant_nlp");
+        "mongodb://"+username+":"+password+"@ds253831.mlab.com:53831/quant_nlp");
     db = client.getDatabase("quant_nlp");
   }
 
@@ -29,8 +29,9 @@ public class Query {
   /**
    * A daemon process to calculate document frequency for each term in doc
    */
-  public static void calDf(String collectionName) {
-    Query.init();
+  public static void calDf(String[] args) {
+    String collectionName = args[0]; 
+    Query.init(args[1], args[2]);
 
     Set<Integer> ids = new HashSet<>(); // to assure no duplicated terms
     List<Document> toWrite = new ArrayList<>();
@@ -270,14 +271,6 @@ public class Query {
   }
 
   public static void main(String[] args) {
-    Query.calDf("08-01");
-    // Query.calDf("07-31");
-    // Query.calDf("07-30");
-    // Query.init();
-    // Query q = new Query();
-    // System.out.println(q.popWords("07-29-Df", 10));
-    // q.queryStock("华谊兄弟", Arrays.asList("07-29", "07-28"));
-    // q.query("公司", 3);
-    // Query.close();
+    Query.calDf(args);
   }
 }
