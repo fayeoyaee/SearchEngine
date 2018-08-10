@@ -1,6 +1,5 @@
 package com.fayeoyaee;
 
-import java.io.IOException;
 import java.util.*;
 
 import org.json.JSONArray;
@@ -30,7 +29,7 @@ public class Crawler {
             posts.add(new MetaData((String) j.get("Title"), (String) j.get("Url"), (String) j.get("CreatedTime")));
           }
         }
-      } catch (IOException e) {
+      } catch (Exception e) {
         e.printStackTrace();
       }
     });

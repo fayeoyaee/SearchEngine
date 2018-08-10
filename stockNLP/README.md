@@ -12,8 +12,8 @@ A query is parsed by NLP parser and the ranked documents are ranked in decreasin
 
 `mvn exec:java -Dexec.mainClass="com.fayeoyaee.Crawler" -Dexec.args="<n_pages> <db_username> <db_password>"` to crawl the latest 10 pages from cnFOL.com (if run as a daily daemon, give it a small value like "2")
 
-`mvn exec:java -Dexec.mainClass="com.fayeoyaee.Query" -Dexec.args="<mm-dd> <db_username> <db_password>""` to calculate document frequecies for a certain data (eg, "08-09")
+`mvn exec:java -Dexec.mainClass="com.fayeoyaee.Query" -Dexec.args="<mm-dd> <db_username> <db_password>"` to calculate document frequecies for a certain data (eg, "08-09")
 
-`mvn exec:java -Dexec.mainClass="com.fayeoyaee.Server" -Dexec.args="<db_username> <db_password>""` to start a server listening on localhost:9090
+`mvn exec:java -Dexec.mainClass="com.fayeoyaee.Server" -Dexec.args="<db_username> <db_password>"` to start a server listening on localhost:9090
 
 `cd client; yarn start` to start the react client

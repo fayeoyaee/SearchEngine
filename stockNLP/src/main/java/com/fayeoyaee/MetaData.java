@@ -1,6 +1,5 @@
 package com.fayeoyaee;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -165,8 +164,8 @@ class MetaData {
       .append("len",term_list.size())
       .append("relatedStocks", relatedStocks.toString()));
 
-    } catch (IOException e) {
-      e.printStackTrace();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
     }
   }
 }

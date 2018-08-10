@@ -97,6 +97,7 @@ For each MetaData we called `parse` method on itself. The parsing pipeline invol
       \texttt{\detokenize{"term":<term_hash>,"doc":<doc_hash>,}}\par
       \texttt{\detokenize{freq":<term_frequency_in_doc>,"norm":<position_of_term>}}
   \end{itemize}
+  It's worth noting that we used hash codes to check that no duplicated document or term is written to the collection. This practice reduces indexing time and prevents errors from batch write.
   \item Write the above collections in batches to mLab hosted on the cloud using MongoDB driver in Java. 
 \end{enumerate}
 
@@ -107,8 +108,8 @@ The Query class resolves three kinds of queries in response to a query string:
 \begin{itemize}
   \item Query popular words: find the top 10 terms in the document frequency collection of each day. 
   \item Query stock: find all the documents with the `relatedStocks' field containing the stock. Calculate the total number of positive and negative words as an index of market response. Also return all the related stocks.
-  \item Common query: replicate step 2 and 3 in parsing pipeline to get list of terms. For each term, calculate a score for all the documents containing this term. The score is calculated as:\\
-  \textbf{score(q,d) = coord(q,d) * sum of (tf(t in d) * idf(t) * idf(t) * boost * norm(t,d)) (for t in q)} \\
+  \item Common query: replicate step 2 and 3 in parsing pipeline to get list of terms. For each term, calculate a score for all the documents containing this term. The score is calculated as:\\ 
+  \textbf{score(q,d) = coord(q,d) * sum of (tf(t in d) * idf(t) * idf(t) * boost * norm(t,d)) (for t in q)} \\ \\
   where:
   \begin{itemize}
     \item `term(t,d)' is retrieved from the `frequency' field of the match posting; 
@@ -127,11 +128,36 @@ The server class opens a socket on port 9090 and keeps reading the socket input 
 The React client provides three search boxes for the three queries respectively. Getting responses from the Java server, the React client parses the data and display data in the right format, eg displays title, url, and snippets of a document in the way most search engines do.  
 
 \section{Result, Evaluation and Improvements}
+\subsection{Testing process}
+We crawled 20 pages starting from 08-10, which produced 1000 documents on 08-10, 08-09, and 08-08 by running the command: \\ \\
+\texttt{\detokenize{mvn exec:java -Dexec.mainClass="com.fayeoyaee.Crawler" -Dexec.args="20 <db_username> <db_password>"}}
+
+Then we produced document frequencies by running: \\ \\
+\texttt{\detokenize{mvn exec:java -Dexec.mainClass="com.fayeoyaee.Query" -Dexec.args="08-10 <db_username> <db_password>"}}
+\texttt{\detokenize{mvn exec:java -Dexec.mainClass="com.fayeoyaee.Query" -Dexec.args="08-09 <db_username> <db_password>"}}
+\texttt{\detokenize{mvn exec:java -Dexec.mainClass="com.fayeoyaee.Query" -Dexec.args="08-08 <db_username> <db_password>"}}
+
+We start the server and the web client by \\ \\
+  \texttt{\detokenize{mvn exec:java -Dexec.mainClass="com.fayeoyaee.Server" -Dexec.args="<db_username> <db_password>"}}
+  \texttt{\detokenize{cd client; yarn start}}.
+
+We issue the following queries: 
+    \begin{itemize}
+      \item Get the most popular words on 08-09
+      \item Search for related document for a stock on 08-09
+      \item Search for keywords (either a single phrase or two phrases) with a window size of 1/2/3 days  
+    \end{itemize}
+
+\subsection{Evaluation and Improvements}
 \begin{itemize}
   \item Popular words query: We found that the top words retrieved contain too much noise. Although we filtered out common words in the stop words process, we did not filter the common words used in the financial world, like companies, stock holders. To actually extract the hot topic words, we need to combine other indexes rather than using pure document frequency. For example, we can compare popular words between days and only select those which have high document frequecies recently.
   \item Stock query: First, we analyzed if the total number of sensational words (positive / negative words) captures the stock market. We found that there were many trend predicting words we didn't capture. Thus, we need to manually check the parsed articles and add more sensational words to our dictionary. Second, we evaluated if the snippets captured the essence of the article. By looking at the snippets along, it's easy to get the main idea of the article. However, the current snippets are still too long and contain too much noise. We should consider developing another filter over the extracted contexts to remove those information that are not useful. Further more, we should consider build snippets with the unfiltered terms in stead of filtered terms to make it easier to understand for users. 
   \item Common query: We found that the returned documents contained a high percentage of query words, which is consistent with our hypothesis. Also, we found that the documents with high term frequencies for all the words in the query had higher scores than those with extremely high frequency for one of the query words, which is also consistent with our assumption. However, we should normalize documents by it's length to prevent bias towards longer documents.
 \end{itemize}
+
+\subsection{Additional future plans}
+Beyond the improvements for the stock analyzer itself mentioned above, we plan to run the crawling and document frequency calculating process everyday at a certain time, so users always get the up-to-date data.
+
 
 
 \section{Supplementary Material}
@@ -143,5 +169,5 @@ The React client provides three search boxes for the three queries respectively.
 \vspace{-5pt}\hspace{-15pt}[3] HanLP: https://github.com/hankcs/HanLP\par
 \vspace{-5pt}\hspace{-15pt}[4] ElasticSearch compared to MongoDB: https://www.ip-label.co.uk/performance-wire/mongodb-and-elasticsearch\par
 \vspace{-5pt}\hspace{-15pt}[5] ElasticSearch scoring principle: https://www.ip-label.co.uk/performance-wire/mongodb-and-elasticsearch\par
-\vspace{-5pt}\hspace{-15pt}[6] The source code is stored here: https://github.com/fayeoyaee/SearchEngine/tree/master/stockNLP\par
+\vspace{-5pt}\hspace{-15pt}[6] Source code: https://github.com/fayeoyaee/SearchEngine/tree/master/stockNLP\par
 \end{document}
